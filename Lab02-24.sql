@@ -47,4 +47,12 @@ SELECT Country, COUNT(*) as [Number of Country] FROM Customers GROUP BY Country 
 SELECT Country, City, COUNT(*) as [Number of Country] FROM Customers GROUP BY Country, City ORDER BY [Number of Country] desc
 
 -- ต้องการข้อมูลจำนวนใบสั่งซื้อที่ส่งไปในแต่ละประเทศ -- orders
-SELECT ShipCountry,COUNT(*) as [จำนวนใบสั่งซื้อ] FROM Orders GROUP BY ShipCountry
+SELECT ShipCountry,COUNT(*) as [จำนวนใบสั่งซื้อ] FROM Orders GROUP BY ShipCountry HAVING count(*) > 100
+
+SELECT Country, city, COUNT(*) as [Num of Country] FROM Customers GROUP BY Country, City HAVING count(*) > 1
+
+-- ต้องการจำนวนใบสั่งซื้อที่สง่ไปในแต่ละประเทศ เฉพาะในปี 1997 และมีจำนวนน้อยกว่า 5 รายการ
+SELECT ShipCountry, COUNT(*) as [จำนวนใบสั่งซื้อ] FROM Orders WHERE YEAR(OrderDate) = 1997 GROUP BY ShipCountry HAVING Count(*) < 5
+SELECT * FROM [Order Details]
+-- ต้องการรหัสสินค้า และ จำนวนที่ขายได้ทั้งหมด 
+SELECT ProductID, SUM(Quantity) AS จำนวนที่ขายได้, MAX(UnitPrice) ราคาสูงสุด, MIN(UnitPrice) ราคาต่ำสุด, AVG(UnitPrice) เฉลี่ย FROM [Order Details] GROUP BY ProductID ORDER BY ProductID
