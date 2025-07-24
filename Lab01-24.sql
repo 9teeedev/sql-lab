@@ -20,3 +20,6 @@ SELECT ProductID as รหัส, ProductName as สินค้า, UnitsInstoc
 SELECT ProductID, ProductName, UnitPrice, ROUND(UnitPrice * 0.07, 2) AS VAT7 FROM Products
 
 SELECT EmployeeID, TitleOfCourtesy, FirstName+space(1)+lastname as [Employee Name] FROM Employees
+
+-- ต้องการคำนวณรายการสินค้าในรายการขายที่ 10248 ใช้ตาราง {Order Detail}
+SELECT orderID, ProductID, UnitPrice, Quantity, Discount, ROUND((UnitPrice*Quantity)*(1-Discount),2) as NetPrice FROM [Order Details] WHERE orderID = 10250
