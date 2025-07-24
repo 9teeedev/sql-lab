@@ -16,3 +16,5 @@ SELECT ProductID as รหัสสินค้า, ProductName as ชื่อ�
 SELECT * FROM Products
 
 SELECT ProductID as รหัส, ProductName as สินค้า, UnitsInstock + UnitsOnOrder as จำนวนคงเหลือทั้งหมด, ReorderLevel as จุดสั่งซื้อ FROM Products WHERE (UnitsInStock + UnitsOnOrder) < ReorderLevel
+
+SELECT ProductID, ProductName, UnitPrice, ROUND(UnitPrice * 0.07, 2) AS VAT7 FROM Products
