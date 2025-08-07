@@ -26,7 +26,7 @@ SELECT EmployeeID, FirstName, LastName, UserName, Password FROM Employees;
 -- 13. ชื่อผู้ใช้ และรหัสผ่านของพนักงานที่ชื่อก้องนิรันดร์
 SELECT Username, Password FROM Employees WHERE FirstName = 'ก้องนิรันดร์';
 -- 14. รหัสพนักงานที่ออกใบเสร็จหมายเลข 3
-SELECT * FROM Receipts WHERE EmployeeID = 3
+SELECT EmployeeID FROM Receipts WHERE ReceiptID = 3;
 -- 15. รหัสสินค้า ชื่อสินค้า ราคา ของสินค้าที่มีรหัสประเภท 2, 4
 SELECT productID, ProductName, UnitPrice FROM Products WHERE CategoryID in (2,4)
 
