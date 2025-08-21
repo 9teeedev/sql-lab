@@ -22,7 +22,7 @@ SELECT * FROM Categories WHERE CategoryName = 'เครื่องสำอา
 -- 11.คำนำหน้า ชื่อ นามสกุล ของพนักงานที่เป็น Sale Representative
 SELECT Title, FirstName, LastName FROM Employees WHERE [Position] = 'Sale Representative';
 -- 12. รหัสพนักงาน ชื่อพนักงาน ชื่อผู้ใช้ รหัสผ่าน ของพนักงานทุกคน
-SELECT EmployeeID, FirstName, LastName, UserName, Password FROM Employees;
+SELECT EmployeeID, FirstName+space(1)+LastName AS EmployeeName, UserName, Password FROM Employees;
 -- 13. ชื่อผู้ใช้ และรหัสผ่านของพนักงานที่ชื่อก้องนิรันดร์
 SELECT Username, Password FROM Employees WHERE FirstName = 'ก้องนิรันดร์';
 -- 14. รหัสพนักงานที่ออกใบเสร็จหมายเลข 3
