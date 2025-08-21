@@ -17,3 +17,9 @@ ORDER BY OrderID
 SELECT CompanyName, OrderID FROM Orders JOIN Shippers
 ON Shippers.ShipperID = Orders.ShipVia
 ORDER BY OrderID
+
+SELECT P.ProductID, P.ProductName, S.CompanyName, S.Country
+FROM Products AS P JOIN Suppliers AS S ON P.SupplierID = S.SupplierID
+
+SELECT P.ProductID, P.ProductName, S.CompanyName, S.Country
+FROM Products AS P, Suppliers AS S WHERE P.SupplierID = S.SupplierID
