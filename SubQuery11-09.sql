@@ -16,3 +16,8 @@ SELECT CompanyName FROM Customers WHERE City = (SELECT City FROM Customers WHERE
 SELECT * FROM Orders WHERE OrderDate = (SELECT min(OrderDate) FROM Orders WHERE YEAR(OrderDate) = '1998')
 -- 7. ต้องการชื่อนามสกุลของพนักงานที่เข้างานล่าสุด    
 SELECT * FROM Employees WHERE HireDate = (SELECT MAX(HireDate) FROM Employees)
+-- 8. ข้อมูลใบสั่งซื้อที่ถูกส่งไปประเทศที่ไม่มีผู้ผลิตสินค้าตั้งอยู่
+SELECT * FROM Orders WHERE ShipCountry NOT IN (SELECT DISTINCT Country FROM Suppliers)
+
+-- 9. ต้องการข้อมูลสินค้าที่มีราคาน้อยกกว่า 50
+SELECT TOP 10 ROW_NUMBER() OVER (ORDER BY UnitPrice DESC) AS RowNum, ProductID, ProductName, UnitPrice AS RowNum FROM Products WHERE UnitPrice < 50
