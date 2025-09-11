@@ -80,3 +80,10 @@ JOIN [Order Details] OD ON O.OrderID = OD.OrderID
 JOIN Products P ON P.ProductID = OD.ProductID
 WHERE C.CompanyName = 'Around the Horn' GROUP BY P.ProductID, P.ProductName
 ORDER BY 1
+
+-- ต้องการหมายเลขใบสั่งซื้อ ชื่อพนักงาน และยอดขายในใบสั่งซื้อนั้น
+SELECT O.OrderID, E.FirstName, SUM(od.Quantity * od.UnitPrice * (1-od.Discount)) AS TotalCash FROM 
+Orders O JOIN Employees E ON O.EmployeeID = E.EmployeeID
+JOIN [Order Details] OD ON O.OrderID = OD.OrderID
+GROUP BY O.OrderID, E.FirstName ORDER BY OrderID
+
