@@ -26,3 +26,8 @@ DROP TABLE Animal
 
 ALTER TABLE Animal
 ADD ScienceName Varchar(30) not null
+
+select * from animal
+
+ALTER TABLE animal
+DROP COLUMN ScienceName
